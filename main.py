@@ -23,7 +23,7 @@ def start(message):
 @bot.message_handler(commands=["facts"])
 def start(message):
     factsList = db_holder.returnData()
-    comp_string = factsList[random.randint(0, len(factsList))]
+    comp_string = factsList[random.randrange(len(factsList))]
     new_string = ''.join([i for i in comp_string if not i.isdigit()])
     bot.send_message(message.chat.id, new_string)
 
